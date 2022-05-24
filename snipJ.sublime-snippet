@@ -1,0 +1,44 @@
+<snippet>
+	<content><![CDATA[
+import java.io.*; import java.util.*; import static java.lang.Math.*; import java.text.DecimalFormat; import java.util.stream.Stream;
+
+class ${TM_FILENAME/(\.\w+)//g} {
+
+	static final long mod = 1000000007L, mod1 = 998244353L;
+	static final double inf = 1e18, pi = 3.141592653589793238462;
+
+	public static void main(String[] args) throws IOException {
+		int tests = getInt();
+		for (int tc = 0; tc < tests; tc++) {
+			solve();
+		}
+		out.close();
+	}
+
+	static void solve() {
+
+	}
+
+/*-----------------------------------------------------------------------------------------------------*/
+	// Use math snippet here
+/*-----------------------------------------------------------------------------------------------------*/
+    static void printPrecision(double d) { DecimalFormat ft = new DecimalFormat("0.000000000000000"); out.println(ft.format(d)); }
+	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));;
+	static PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
+	static String getString() throws IOException { return in.readLine(); }
+	static int getInt() throws IOException { return Integer.parseInt(in.readLine()); }
+	static long getLong() throws IOException { return Long.parseLong(in.readLine()); }
+	static double getDouble() throws IOException { return Double.parseDouble(in.readLine()); }
+	static int[] getInts() throws IOException { return Stream.of(in.readLine().split(" ")).mapToInt(Integer::parseInt).toArray(); }
+	static long[] getLongs() throws IOException { return Stream.of(in.readLine().split(" ")).mapToLong(Long::parseLong).toArray(); }
+	static double[] getDoubles() throws IOException { return Stream.of(in.readLine().split(" ")).mapToDouble(Double::parseDouble).toArray(); }
+}
+/*----------------------------------------------------------------------------------------------------*/
+// Add new classes here
+/*----------------------------------------------------------------------------------------------------*/
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>snip</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.java</scope>
+</snippet>

@@ -1,0 +1,47 @@
+<snippet>
+	<content><![CDATA[
+    static int upper_bound(int[] a, int x) { //closest to the left+1
+        int l = -1, r = a.length;
+        while (l + 1 < r) {
+            int m = (l + r) >>> 1;
+            if (a[m] <= x) l = m;
+            else r = m;
+        }
+        return l + 1;
+    }
+    
+    static int upper_bound(List<Integer> a, int x) { //closest to the left+1
+        int l = -1, r = a.size();
+        while (l + 1 < r) {
+            int m = (l + r) >>> 1;
+            if (a.get(m) <= x) l = m;
+            else r = m;
+        }
+        return l + 1;
+    }
+    
+    static int lower_bound(int[] a, int x)  { //closest to the right
+        int l = -1, r = a.length;
+        while (l + 1 < r) {
+            int m = (l + r) >>> 1;
+            if (a[m] >= x) r = m;
+            else l = m;
+        }
+        return r;
+    }
+    
+    static int lower_bound(List<Integer> a, int x)  { //closest to the right
+        int l = -1, r = a.size();
+        while (l + 1 < r) {
+            int m = (l + r) >>> 1;
+            if (a.get(m) >= x) r = m;
+            else l = m;
+        }
+        return r;
+    }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bounds</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.java</scope>
+</snippet>

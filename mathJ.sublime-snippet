@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+    static long[] facts = new long[1_000_00], factsInv = new long[1_000_00]; static int[] primes = new int[1_000_00];  
+    static long add(long a, long b, long m) {a %= m; b %= m; return (((a + b) % m) + m) % m;}
+    static long mul(long a, long b, long m) {a %= m; b %= m; return (((a * b) % m) + m) % m;}
+    static long sub(long a, long b, long m) {a %= m; b %= m; return (((a - b) % m) + m) % m;}
+    static long div(long a, long b, long m) {a %= m; b %= m; return (mul(a, modinvfermat(b, m), m) + m) % m;}  //only for prime m
+    static long gcd(long a, long b) {if (b > a) return gcd(b, a); if (b == 0L) return a; return gcd(b, a % b);}
+    static long lcm(long a, long b) { return (a / gcd(a, b)) * b; }
+    static long expo(long base, long expt, long mod) { long res = 1L; while (expt > 0) {if (expt % 2 == 1)res = mul(res, base, mod); base = mul(base, base, mod); expt = expt >> 1;} return res; }
+    static long modinvfermat(long a, long b) { return expo(a, b - 2, b); }
+    static long nCk(int n, int k, long m) { return mul(facts[n], mul(factsInv[k], factsInv[n - k], m), m); }
+    static boolean isPrime(long n) { if(n < 2) return false; if(n == 2 || n == 3) return true; if(n % 2 == 0 || n % 3 == 0) return false; for(long i = 6L; i <= (long)sqrt(n) + 1; i += 6) { if(n % (i - 1) == 0 || n % (i + 1) == 0) return false;} return true; }
+    static long phi1n(long n) { long no = n; if (n % 2 == 0) { no /= 2; while (n % 2 == 0) n /= 2; } for (long i = 3; i <= sqrt(n); i += 2) { if (n % i == 0) { while (n % i == 0) n /= i; no = (no / i * (i - 1)); } } if (n > 1) no = (no / n * (n - 1)); return no; }
+    static void sieve(int n) { for (int i = 2; i <= n; i++) if (primes[i] == 0) { for (int j = i; j <= n; j += i) primes[j] = 1; } }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>math</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.java</scope>
+</snippet>

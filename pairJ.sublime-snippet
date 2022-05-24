@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+class Pair<F, S> implements Comparable<Pair<F, S>> {
+    F ff;
+    S ss;
+    public Pair(F ff, S ss) { this.ff = ff; this.ss = ss; }
+    public <F, S> Pair<F, S> makePair(F ff, S ss) { return new Pair<F, S>(ff, ss); }
+    public F getFirst() { return this.ff; }
+    public S getSecond() { return this.ss; }
+    public Pair<S, F> swap() { return makePair(ss, ff); }
+    @SuppressWarnings({ "unchecked" })
+    public int compareTo(Pair<F, S> o) { int value = ((Comparable<F>) ff).compareTo(o.ff); if (value != 0) return value; return ((Comparable<S>) ss).compareTo(o.ss); }
+    
+    // Sort on basis of first term, reverse p1.ff and p2.ff to sort in desc
+    // Collections.sort(a, (p1, p2) -> (p1.ff - p2.ff));
+
+    // Sort on basis of second term, reverse p1.ss and p2.ss to sort in desc
+    // Collections.sort(a, (p1, p2) -> (p1.ss - p2.ss));
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>pair</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.java</scope>
+</snippet>
