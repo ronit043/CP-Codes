@@ -77,5 +77,6 @@
     "break",
     "continue",
     "top",
+    "while ",
     ]
 }
