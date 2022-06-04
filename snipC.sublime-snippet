@@ -38,7 +38,7 @@ void solve() {
 }
 
 int main() {
-    freopen("Error.txt", "w", stderr);
+    freopen("error.txt", "w", stderr);
     iOS
     int tests; cin >> tests;
     for (int tc = 0; tc < tests; tc++) {
