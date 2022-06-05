@@ -23,7 +23,7 @@ class ${TM_FILENAME/(\.\w+)//g} {
 	// Use math snippet here
 /*-----------------------------------------------------------------------------------------------------*/
     static void printPrecision(double d) { DecimalFormat ft = new DecimalFormat("0.000000000000000"); out.println(ft.format(d)); }
-	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));;
+	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	static PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
 	static String getString() throws IOException { return in.readLine(); }
 	static int getInt() throws IOException { return Integer.parseInt(in.readLine()); }
